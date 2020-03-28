@@ -2,7 +2,7 @@
 using namespace std;
 
 template <typename T>
-bool chmin(T &a, const T& b) {
+bool chmin(T& a, const T& b) {
   if (a > b) {
     a = b;
     return true;
@@ -12,7 +12,7 @@ bool chmin(T &a, const T& b) {
 
 const int INF = 1001001001;
 
-int main(){
+int main() {
   int N;
   cin >> N;
 
@@ -22,10 +22,10 @@ int main(){
   vector<int> dp(N);
   for (int i = 0; i < N; ++i) dp.at(i) = INF;
   dp.at(0) = 0;
-  for (int i = 1; i < N; i++){
+  for (int i = 1; i < N; i++) {
     chmin(dp.at(i), dp.at(i - 1) + abs(A.at(i) - A.at(i - 1)));
-    if( i > 1 ) chmin(dp.at(i), dp.at(i - 2) + abs(A.at(i) - A.at(i - 2)));
+    if (i > 1) chmin(dp.at(i), dp.at(i - 2) + abs(A.at(i) - A.at(i - 2)));
   }
 
-  cout << dp.at(N-1) << endl;
+  cout << dp.at(N - 1) << endl;
 }

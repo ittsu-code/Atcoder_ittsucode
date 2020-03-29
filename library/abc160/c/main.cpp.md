@@ -21,16 +21,16 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: abc160/c/main.cpp
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* category: <a href="../../../index.html#42431336c1cb662c4014fe3eeb1b56f3">abc160/c</a>
+* <a href="{{ site.github.repository_url }}/blob/master/abc160/c/main.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-29 10:30:52+09:00
 
 
@@ -44,34 +44,25 @@ layout: default
 #include <bits/stdc++.h>
 using namespace std;
 
-int cnt = 0;
-
-void selectionSort(vector<int> &A, int N) {
-  for (int i = 0; i < N - 1; i++) {
-    int minj = i;
-    for (int j = i; i < N - 1; j++) {
-      if (A.at(j) == j) {
-        swap(A.at(i), A.at(minj));
-        cnt++;
-      }
-    }
-  }
-}
-
 int main() {
-  int N;
-  cin >> N;
+  int K, N;
+  cin >> K >> N;
 
   vector<int> A(N);
   for (int i = 0; i < N; i++) cin >> A.at(i);
 
+  vector<int> B(N);
   for (int i = 0; i < N - 1; i++) {
-    selectionSort(A, N);
-    cout << A.at(i);
+    B.at(i) = A.at(i + 1) - A.at(i);
+  }
+  B.at(N - 1) = ((K - A.at(N - 1)) + A.at(0));
+
+  int ans = 100100100;
+  for (int i = 0; i < N; i++) {
+    ans = min(ans, K - B.at(i));
   }
 
-  cout << endl;
-  cout << cnt << endl;
+  cout << ans << endl;
 }
 ```
 {% endraw %}
@@ -79,42 +70,33 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "abc160/c/main.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
-int cnt = 0;
-
-void selectionSort(vector<int> &A, int N) {
-  for (int i = 0; i < N - 1; i++) {
-    int minj = i;
-    for (int j = i; i < N - 1; j++) {
-      if (A.at(j) == j) {
-        swap(A.at(i), A.at(minj));
-        cnt++;
-      }
-    }
-  }
-}
-
 int main() {
-  int N;
-  cin >> N;
+  int K, N;
+  cin >> K >> N;
 
   vector<int> A(N);
   for (int i = 0; i < N; i++) cin >> A.at(i);
 
+  vector<int> B(N);
   for (int i = 0; i < N - 1; i++) {
-    selectionSort(A, N);
-    cout << A.at(i);
+    B.at(i) = A.at(i + 1) - A.at(i);
+  }
+  B.at(N - 1) = ((K - A.at(N - 1)) + A.at(0));
+
+  int ans = 100100100;
+  for (int i = 0; i < N; i++) {
+    ans = min(ans, K - B.at(i));
   }
 
-  cout << endl;
-  cout << cnt << endl;
+  cout << ans << endl;
 }
 
 ```
 {% endraw %}
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 

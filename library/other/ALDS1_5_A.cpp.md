@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: other/ALDS1_5_A.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
+* <a href="{{ site.github.repository_url }}/blob/master/other/ALDS1_5_A.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-29 10:30:52+09:00
 
 
@@ -44,73 +44,80 @@ layout: default
 #include <bits/stdc++.h>
 using namespace std;
 
-int cnt = 0;
+int main() {
+  int N;
+  cin >> N;
+  vector<int> A(N);
+  for (int i = 0; i < N; i++) cin >> A.at(i);
 
-void selectionSort(vector<int> &A, int N) {
-  for (int i = 0; i < N - 1; i++) {
-    int minj = i;
-    for (int j = i; i < N - 1; j++) {
-      if (A.at(j) == j) {
-        swap(A.at(i), A.at(minj));
-        cnt++;
+  int M;
+  cin >> M;
+  vector<int> B(M);
+  for (int i = 0; i < M; i++) cin >> B.at(i);
+
+  for (int tmp = 0; tmp < (1 << 20); tmp++) {
+    bitset<20> s(tmp);
+
+    int sum = 0;
+    for (int i = 0; i < M; i++) {
+      bool ans = false;
+      for (int j = 0; j < N; j++) {
+        if (s.test(j)) {
+          sum += A.at(j);
+        }
+        if (sum == B.at(i)) {
+          ans = true;
+        }
       }
+      if (ans)
+        cout << "yes" << endl;
+      else
+        cout << "no" << endl;
     }
   }
 }
 
-int main() {
-  int N;
-  cin >> N;
-
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) cin >> A.at(i);
-
-  for (int i = 0; i < N - 1; i++) {
-    selectionSort(A, N);
-    cout << A.at(i);
-  }
-
-  cout << endl;
-  cout << cnt << endl;
-}
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "other/ALDS1_5_A.cpp"
 #include <bits/stdc++.h>
 using namespace std;
-
-int cnt = 0;
-
-void selectionSort(vector<int> &A, int N) {
-  for (int i = 0; i < N - 1; i++) {
-    int minj = i;
-    for (int j = i; i < N - 1; j++) {
-      if (A.at(j) == j) {
-        swap(A.at(i), A.at(minj));
-        cnt++;
-      }
-    }
-  }
-}
 
 int main() {
   int N;
   cin >> N;
-
   vector<int> A(N);
   for (int i = 0; i < N; i++) cin >> A.at(i);
 
-  for (int i = 0; i < N - 1; i++) {
-    selectionSort(A, N);
-    cout << A.at(i);
-  }
+  int M;
+  cin >> M;
+  vector<int> B(M);
+  for (int i = 0; i < M; i++) cin >> B.at(i);
 
-  cout << endl;
-  cout << cnt << endl;
+  for (int tmp = 0; tmp < (1 << 20); tmp++) {
+    bitset<20> s(tmp);
+
+    int sum = 0;
+    for (int i = 0; i < M; i++) {
+      bool ans = false;
+      for (int j = 0; j < N; j++) {
+        if (s.test(j)) {
+          sum += A.at(j);
+        }
+        if (sum == B.at(i)) {
+          ans = true;
+        }
+      }
+      if (ans)
+        cout << "yes" << endl;
+      else
+        cout << "no" << endl;
+    }
+  }
 }
 
 ```

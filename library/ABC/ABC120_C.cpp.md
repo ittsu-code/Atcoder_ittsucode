@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: ABC/ABC120_C.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ABC/ABC120_C.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-03 00:06:49+09:00
 
 
@@ -45,32 +45,12 @@ layout: default
 using namespace std;
 
 int main() {
-  int N;
-  cin >> N;
+  string S;
+  cin >> S;
 
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-  }
-
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
-
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
-    }
-  }
-
-  cout << ans << endl;
+  multiset<char> Cube;
+  for (int i = 0; i < S.size() - 1; i++) Cube.insert(S.at(i));
+  cout << min(Cube.count('0'), Cube.count('1')) * 2 << endl;
 }
 ```
 {% endraw %}
@@ -78,37 +58,17 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "ABC/ABC120_C.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  int N;
-  cin >> N;
+  string S;
+  cin >> S;
 
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-  }
-
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
-
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
-    }
-  }
-
-  cout << ans << endl;
+  multiset<char> Cube;
+  for (int i = 0; i < S.size() - 1; i++) Cube.insert(S.at(i));
+  cout << min(Cube.count('0'), Cube.count('1')) * 2 << endl;
 }
 
 ```

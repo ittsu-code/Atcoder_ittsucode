@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: ABC/ABC146_C.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ABC/ABC146_C.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-03 00:06:49+09:00
 
 
@@ -44,33 +44,27 @@ layout: default
 #include <bits/stdc++.h>
 using namespace std;
 
+int CountOfDigits(int n) {
+  int sum = 0;
+  while (n > 0) {
+    sum++;
+    n /= 10;
+  }
+  return sum;
+}
+
 int main() {
-  int N;
-  cin >> N;
+  long long A, B, X;
+  cin >> A >> B >> X;
 
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
+  vector<long long> C(100000000);
+  for (long long i = 0; i < 100000000; i++) {
+    C.at(i) = A * i + B * CountOfDigits(i);
   }
 
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
-
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
-    }
-  }
-
-  cout << ans << endl;
+  auto ans = lower_bound(C.begin(), C.end(), X);
+  ans = ans--;
+  cout << *ans << endl;
 }
 ```
 {% endraw %}
@@ -78,37 +72,31 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "ABC/ABC146_C.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
+int CountOfDigits(int n) {
+  int sum = 0;
+  while (n > 0) {
+    sum++;
+    n /= 10;
+  }
+  return sum;
+}
+
 int main() {
-  int N;
-  cin >> N;
+  long long A, B, X;
+  cin >> A >> B >> X;
 
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
+  vector<long long> C(100000000);
+  for (long long i = 0; i < 100000000; i++) {
+    C.at(i) = A * i + B * CountOfDigits(i);
   }
 
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
-
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
-    }
-  }
-
-  cout << ans << endl;
+  auto ans = lower_bound(C.begin(), C.end(), X);
+  ans = ans--;
+  cout << *ans << endl;
 }
 
 ```

@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: other/nibu.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
+* <a href="{{ site.github.repository_url }}/blob/master/other/nibu.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-03 00:06:49+09:00
 
 
@@ -44,33 +44,25 @@ layout: default
 #include <bits/stdc++.h>
 using namespace std;
 
+vector<int> a = {1, 14, 32, 51, 51, 51, 243, 419, 750, 910};
+
+int binary_search(int key) {
+  int left = 0, right = (int)a.size() - 1;
+  while (right >= left) {
+    int mid = left + (right - left) / 2;
+    if (a[mid] == key)
+      return mid;
+    else if (a[mid] > key)
+      right = mid - 1;
+    else if (a[mid] < key)
+      left = mid + 1;
+  }
+  return -1;
+}
+
 int main() {
   int N;
   cin >> N;
-
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-  }
-
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
-
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
-    }
-  }
-
-  cout << ans << endl;
 }
 ```
 {% endraw %}
@@ -78,37 +70,29 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "other/nibu.cpp"
 #include <bits/stdc++.h>
 using namespace std;
+
+vector<int> a = {1, 14, 32, 51, 51, 51, 243, 419, 750, 910};
+
+int binary_search(int key) {
+  int left = 0, right = (int)a.size() - 1;
+  while (right >= left) {
+    int mid = left + (right - left) / 2;
+    if (a[mid] == key)
+      return mid;
+    else if (a[mid] > key)
+      right = mid - 1;
+    else if (a[mid] < key)
+      left = mid + 1;
+  }
+  return -1;
+}
 
 int main() {
   int N;
   cin >> N;
-
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-  }
-
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
-
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
-    }
-  }
-
-  cout << ans << endl;
 }
 
 ```

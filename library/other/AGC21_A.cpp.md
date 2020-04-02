@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: other/AGC21_A.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
+* <a href="{{ site.github.repository_url }}/blob/master/other/AGC21_A.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-03 00:06:49+09:00
 
 
@@ -45,30 +45,22 @@ layout: default
 using namespace std;
 
 int main() {
-  int N;
+  string N;
   cin >> N;
 
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-  }
-
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
-
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
+  int ans = ((N.size() - 1) * 9);
+  bool flag = true;
+  for (int i = 1; i < N.size(); i++) {
+    if (N.at(i) != '9') {
+      flag = false;
+      break;
     }
   }
+
+  if (flag)
+    ans += N.at(0) - '0';
+  else
+    ans += N.at(0) - '1';
 
   cout << ans << endl;
 }
@@ -78,35 +70,27 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "other/AGC21_A.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  int N;
+  string N;
   cin >> N;
 
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-  }
-
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
-
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
+  int ans = ((N.size() - 1) * 9);
+  bool flag = true;
+  for (int i = 1; i < N.size(); i++) {
+    if (N.at(i) != '9') {
+      flag = false;
+      break;
     }
   }
+
+  if (flag)
+    ans += N.at(0) - '0';
+  else
+    ans += N.at(0) - '1';
 
   cout << ans << endl;
 }

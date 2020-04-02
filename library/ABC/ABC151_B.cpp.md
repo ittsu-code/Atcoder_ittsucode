@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: ABC/ABC151_B.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ABC/ABC151_B.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-03 00:06:49+09:00
 
 
@@ -45,32 +45,23 @@ layout: default
 using namespace std;
 
 int main() {
-  int N;
-  cin >> N;
+  int N, K, M;
+  cin >> N >> K >> M;
 
   vector<int> A(N);
+  int tot = 0;
   for (int i = 0; i < N; i++) {
     cin >> A.at(i);
+    tot += A.at(i);
   }
 
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
+  int ans;
+  ans >= M* N - tot;
 
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
-    }
-  }
-
-  cout << ans << endl;
+  if (ans >= K)
+    cout << ans << endl;
+  else
+    cout << -1 << endl;
 }
 ```
 {% endraw %}
@@ -78,37 +69,28 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "ABC/ABC151_B.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  int N;
-  cin >> N;
+  int N, K, M;
+  cin >> N >> K >> M;
 
   vector<int> A(N);
+  int tot = 0;
   for (int i = 0; i < N; i++) {
     cin >> A.at(i);
+    tot += A.at(i);
   }
 
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
+  int ans;
+  ans >= M* N - tot;
 
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
-    }
-  }
-
-  cout << ans << endl;
+  if (ans >= K)
+    cout << ans << endl;
+  else
+    cout << -1 << endl;
 }
 
 ```

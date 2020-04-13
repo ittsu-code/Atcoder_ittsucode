@@ -2,30 +2,15 @@
 using namespace std;
 
 int main() {
-  int N;
+  string N;
   cin >> N;
 
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-  }
-
-  map<int, int> Map;
-  for (int i = 0; i < N; i++) {
-    Map[A.at(i)]++;
-  }
-
-  int ans = 0;
-  for (auto p : Map) {
-    auto key = p.first;
-    auto value = p.second;
-    if (value != key) {
-      if (key < value)
-        ans += value - key;
-      else
-        ans += value;
+  for (int i = 0; i < 3; i++) {
+    if (N.at(i) == '7') {
+      cout << "Yes" << endl;
+      return 0;
     }
   }
 
-  cout << ans << endl;
+  cout << "No" << endl;
 }

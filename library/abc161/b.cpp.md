@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: other/test.cpp
+# :warning: abc161/b.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
-* <a href="{{ site.github.repository_url }}/blob/master/other/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#16bdd910d1ce66bcccae077af611e602">abc161</a>
+* <a href="{{ site.github.repository_url }}/blob/master/abc161/b.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-13 21:31:16+09:00
 
 
@@ -45,18 +45,27 @@ layout: default
 using namespace std;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
+  int N, M;
+  cin >> N >> M;
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
+  vector<int> A(N);
+  int tot = 0;
+  for (int i = 0; i < N; i++) {
+    cin >> A.at(i);
+    tot += A.at(i);
+  }
 
-  cout << ans << endl;
+  sort(A.begin(), A.end());
+  reverse(A.begin(), A.end());
+
+  for (int i = 0; i < M; i++) {
+    if (A.at(i) * 4 * M < tot) {
+      cout << "No" << endl;
+      return 0;
+    }
+  }
+
+  cout << "Yes" << endl;
 }
 ```
 {% endraw %}
@@ -64,23 +73,32 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "other/test.cpp"
+#line 1 "abc161/b.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
+  int N, M;
+  cin >> N >> M;
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
+  vector<int> A(N);
+  int tot = 0;
+  for (int i = 0; i < N; i++) {
+    cin >> A.at(i);
+    tot += A.at(i);
+  }
 
-  cout << ans << endl;
+  sort(A.begin(), A.end());
+  reverse(A.begin(), A.end());
+
+  for (int i = 0; i < M; i++) {
+    if (A.at(i) * 4 * M < tot) {
+      cout << "No" << endl;
+      return 0;
+    }
+  }
+
+  cout << "Yes" << endl;
 }
 
 ```

@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: other/test.cpp
+# :warning: abc160/d.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
-* <a href="{{ site.github.repository_url }}/blob/master/other/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#473e2c0aaaa842a876e956a0605862b6">abc160</a>
+* <a href="{{ site.github.repository_url }}/blob/master/abc160/d.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-13 21:31:16+09:00
 
 
@@ -45,42 +45,25 @@ layout: default
 using namespace std;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
-
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
-
-  cout << ans << endl;
+  int n, x, y;
+  cin >> n >> x >> y;
+  x--, y--;
 }
+
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "other/test.cpp"
+#line 1 "abc160/d.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
-
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
-
-  cout << ans << endl;
+  int n, x, y;
+  cin >> n >> x >> y;
+  x--, y--;
 }
 
 ```

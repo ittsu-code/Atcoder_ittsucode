@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: other/test.cpp
+# :warning: ABC/AGC004_A.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
-* <a href="{{ site.github.repository_url }}/blob/master/other/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ABC/AGC004_A.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-13 21:31:16+09:00
 
 
@@ -45,18 +45,17 @@ layout: default
 using namespace std;
 
 int main() {
-  int A, B, C;
+  long long A, B, C;
   cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
+  vector X = {A, B, C};
+  sort(X.begin(), X.end());
+  if (X.at(0) % 2 == 0 || X.at(1) % 2 == 0 || X.at(2) % 2 == 0)
+    cout << 0 << endl;
   else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
-
-  cout << ans << endl;
+    cout << ((X.at(2) + 1) * X.at(0) * X.at(1) * 4) -
+                (X.at(0) * X.at(1) * X.at(2) * 4)
+         << endl;
 }
 ```
 {% endraw %}
@@ -64,23 +63,22 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "other/test.cpp"
+#line 1 "ABC/AGC004_A.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  int A, B, C;
+  long long A, B, C;
   cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
+  vector X = {A, B, C};
+  sort(X.begin(), X.end());
+  if (X.at(0) % 2 == 0 || X.at(1) % 2 == 0 || X.at(2) % 2 == 0)
+    cout << 0 << endl;
   else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
-
-  cout << ans << endl;
+    cout << ((X.at(2) + 1) * X.at(0) * X.at(1) * 4) -
+                (X.at(0) * X.at(1) * X.at(2) * 4)
+         << endl;
 }
 
 ```

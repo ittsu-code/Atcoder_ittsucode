@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: ABC/ABC_162D.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ABC/ABC_162D.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-13 21:31:16+09:00
 
 
@@ -45,17 +45,35 @@ layout: default
 using namespace std;
 
 int main() {
-  string N;
+  int N;
   cin >> N;
 
-  for (int i = 0; i < 3; i++) {
-    if (N.at(i) == '7') {
-      cout << "Yes" << endl;
-      return 0;
+  string S;
+  cin >> S;
+
+  long long cntR = 0, cntG = 0, cntB = 0;
+  for (int i = 0; i < N; i++) {
+    if (S.at(i) == 'R')
+      cntR++;
+    else if (S.at(i) == 'G')
+      cntG++;
+    else
+      cntB++;
+  }
+
+  long long cntFirst = cntR * cntG * cntB;
+
+  long long cntSecond = 0;
+  for (int i = 0; i < N; i++) {
+    for (int j = i + 1; j < N; j++) {
+      if (S.at(i) == S.at(j)) continue;
+      int k = j * 2 - i;
+      if (k >= N || S.at(k) == S.at(i) || S.at(k) == S.at(j)) continue;
+      ++cntSecond;
     }
   }
 
-  cout << "No" << endl;
+  cout << cntFirst - cntSecond << endl;
 }
 ```
 {% endraw %}
@@ -63,22 +81,40 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "ABC/ABC_162D.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  string N;
+  int N;
   cin >> N;
 
-  for (int i = 0; i < 3; i++) {
-    if (N.at(i) == '7') {
-      cout << "Yes" << endl;
-      return 0;
+  string S;
+  cin >> S;
+
+  long long cntR = 0, cntG = 0, cntB = 0;
+  for (int i = 0; i < N; i++) {
+    if (S.at(i) == 'R')
+      cntR++;
+    else if (S.at(i) == 'G')
+      cntG++;
+    else
+      cntB++;
+  }
+
+  long long cntFirst = cntR * cntG * cntB;
+
+  long long cntSecond = 0;
+  for (int i = 0; i < N; i++) {
+    for (int j = i + 1; j < N; j++) {
+      if (S.at(i) == S.at(j)) continue;
+      int k = j * 2 - i;
+      if (k >= N || S.at(k) == S.at(i) || S.at(k) == S.at(j)) continue;
+      ++cntSecond;
     }
   }
 
-  cout << "No" << endl;
+  cout << cntFirst - cntSecond << endl;
 }
 
 ```

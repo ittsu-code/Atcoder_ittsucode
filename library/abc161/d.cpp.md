@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: other/test.cpp
+# :warning: abc161/d.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
-* <a href="{{ site.github.repository_url }}/blob/master/other/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#16bdd910d1ce66bcccae077af611e602">abc161</a>
+* <a href="{{ site.github.repository_url }}/blob/master/abc161/d.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-13 21:31:16+09:00
 
 
@@ -45,16 +45,22 @@ layout: default
 using namespace std;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
+  int K;
+  cin >> K;
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
+  queue<int> L;
+  for (int i = 1; i <= 9; i++) {
+    L.push(i);
+  }
+
+  int ans;
+  for (int i = 0; i <= K; i++) {
+    ans = L.front();
+    L.pop();
+    if (ans % 10 != 0) L.push(10 * ans + (ans % 10));
+    L.push(10 * ans);
+    if (ans % 10 != 1) L.push(10 * ans + (ans % 10));
+  }
 
   cout << ans << endl;
 }
@@ -64,21 +70,27 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "other/test.cpp"
+#line 1 "abc161/d.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
+  int K;
+  cin >> K;
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
+  queue<int> L;
+  for (int i = 1; i <= 9; i++) {
+    L.push(i);
+  }
+
+  int ans;
+  for (int i = 0; i <= K; i++) {
+    ans = L.front();
+    L.pop();
+    if (ans % 10 != 0) L.push(10 * ans + (ans % 10));
+    L.push(10 * ans);
+    if (ans % 10 != 1) L.push(10 * ans + (ans % 10));
+  }
 
   cout << ans << endl;
 }

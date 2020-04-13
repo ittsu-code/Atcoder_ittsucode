@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: other/test.cpp
+# :warning: ABC/code_festival_2017_qualc_B.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
-* <a href="{{ site.github.repository_url }}/blob/master/other/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ABC/code_festival_2017_qualc_B.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-13 21:31:16+09:00
 
 
@@ -45,42 +45,57 @@ layout: default
 using namespace std;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
+  int N;
+  cin >> N;
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
+  int tot = 1;
+  vector<int> A(N);
+  for (int i = 0; i < N; i++) {
+    cin >> A.at(i);
+    tot *= (i + 1);
+  }
 
-  cout << ans << endl;
+  int cnt = 0;
+  for (int i = 0; i < N; i++) {
+    if (A.at(i) % 2 == 0)
+      cnt += 2;
+    else
+      cnt++;
+  }
+
+  cout << tot - pow(2, cnt) << endl;
 }
+
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "other/test.cpp"
+#line 1 "ABC/code_festival_2017_qualc_B.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
+  int N;
+  cin >> N;
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
+  int tot = 1;
+  vector<int> A(N);
+  for (int i = 0; i < N; i++) {
+    cin >> A.at(i);
+    tot *= (i + 1);
+  }
 
-  cout << ans << endl;
+  int cnt = 0;
+  for (int i = 0; i < N; i++) {
+    if (A.at(i) % 2 == 0)
+      cnt += 2;
+    else
+      cnt++;
+  }
+
+  cout << tot - pow(2, cnt) << endl;
 }
 
 ```

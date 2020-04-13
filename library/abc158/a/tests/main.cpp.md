@@ -21,16 +21,16 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: abc158/a/tests/main.cpp
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* category: <a href="../../../../index.html#8e6b785c30e4c9340188ce49889ed5bc">abc158/a/tests</a>
+* <a href="{{ site.github.repository_url }}/blob/master/abc158/a/tests/main.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-13 21:31:16+09:00
 
 
@@ -41,48 +41,18 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
 
-int main() {
-  string N;
-  cin >> N;
-
-  for (int i = 0; i < 3; i++) {
-    if (N.at(i) == '7') {
-      cout << "Yes" << endl;
-      return 0;
-    }
-  }
-
-  cout << "No" << endl;
-}
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
-#include <bits/stdc++.h>
-using namespace std;
+#line 1 "abc158/a/tests/main.cpp"
 
-int main() {
-  string N;
-  cin >> N;
-
-  for (int i = 0; i < 3; i++) {
-    if (N.at(i) == '7') {
-      cout << "Yes" << endl;
-      return 0;
-    }
-  }
-
-  cout << "No" << endl;
-}
 
 ```
 {% endraw %}
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../../index.html">Back to top page</a>
 

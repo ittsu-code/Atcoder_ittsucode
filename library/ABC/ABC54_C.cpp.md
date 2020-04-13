@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: other/test.cpp
+# :warning: ABC/ABC54_C.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
-* <a href="{{ site.github.repository_url }}/blob/master/other/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ABC/ABC54_C.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-13 21:31:16+09:00
 
 
@@ -43,20 +43,39 @@ layout: default
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
+using Graph = vector<vector<int>>;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
+  int N, M;
+  cin >> N >> M;
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
+  Graph G(N);
+  for (int i = 0; i < M; ++i) {
+    int a, b;
+    cin >> a >> b;
+    G[a].push_back(b);
+    G[b].push_back(a);
+  }
 
-  cout << ans << endl;
+  vector<int> dist(N, -1);
+  queue<int> que;
+
+  dist.at(0) = 0;
+  que.push(0);
+
+  while (!que.empty()) {
+    int v = que.front();
+    que.pop();
+
+    for (int nv : G.at(v)) {
+      if (dist.at(nv) != -1) continue;
+
+      dist.at(nv) = dist.at(v) + 1;
+      que.push(nv);
+    }
+  }
+
+  for (int v = 0; v < N; ++v) cout << v << ": " << dist[v] << endl;
 }
 ```
 {% endraw %}
@@ -64,23 +83,42 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "other/test.cpp"
+#line 1 "ABC/ABC54_C.cpp"
 #include <bits/stdc++.h>
 using namespace std;
+using Graph = vector<vector<int>>;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
+  int N, M;
+  cin >> N >> M;
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
+  Graph G(N);
+  for (int i = 0; i < M; ++i) {
+    int a, b;
+    cin >> a >> b;
+    G[a].push_back(b);
+    G[b].push_back(a);
+  }
 
-  cout << ans << endl;
+  vector<int> dist(N, -1);
+  queue<int> que;
+
+  dist.at(0) = 0;
+  que.push(0);
+
+  while (!que.empty()) {
+    int v = que.front();
+    que.pop();
+
+    for (int nv : G.at(v)) {
+      if (dist.at(nv) != -1) continue;
+
+      dist.at(nv) = dist.at(v) + 1;
+      que.push(nv);
+    }
+  }
+
+  for (int v = 0; v < N; ++v) cout << v << ": " << dist[v] << endl;
 }
 
 ```

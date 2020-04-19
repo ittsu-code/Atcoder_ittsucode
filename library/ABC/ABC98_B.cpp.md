@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: ABC/ABC98_B.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ABC/ABC98_B.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-19 18:37:09+09:00
 
 
@@ -44,76 +44,81 @@ layout: default
 #include <bits/stdc++.h>
 using namespace std;
 
+int func(string s, string t) {
+  int ans = 0;
+  for (char c = 'a'; c < 'z'; c++) {
+    bool founds = false, foundt = false;
+    for (int i = 0; i < s.length(); i++) {
+      if (s.at(i) == c) {
+        founds = true;
+      }
+    }
+    for (int i = 0; i < t.length(); i++) {
+      if (t.at(i) == c) {
+        foundt = true;
+      }
+    }
+    if (founds && foundt) ans++;
+  }
+  return ans;
+}
+
 int main() {
   int N;
   cin >> N;
+  string S;
+  cin >> S;
 
-  int cnt4 = 0;
-  int cnt2 = 0;
-  int odd = 0;
-  vector<int> A(N);
+  int ans = 0;
   for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-    if (A.at(i) % 4 == 0)
-      cnt4++;
-    else if (A.at(i) % 2 == 0) {
-      cnt2 = 1;
-    } else
-      odd++;
+    int tmp = func(S.substr(0, i), S.substr(i));
+    ans = max(ans, tmp);
   }
 
-  if (cnt2 != 0) {
-    if (cnt4 >= odd - 1)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  } else {
-    if (cnt4 >= odd)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  }
+  cout << ans << endl;
 }
-
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "ABC/ABC98_B.cpp"
 #include <bits/stdc++.h>
 using namespace std;
+
+int func(string s, string t) {
+  int ans = 0;
+  for (char c = 'a'; c < 'z'; c++) {
+    bool founds = false, foundt = false;
+    for (int i = 0; i < s.length(); i++) {
+      if (s.at(i) == c) {
+        founds = true;
+      }
+    }
+    for (int i = 0; i < t.length(); i++) {
+      if (t.at(i) == c) {
+        foundt = true;
+      }
+    }
+    if (founds && foundt) ans++;
+  }
+  return ans;
+}
 
 int main() {
   int N;
   cin >> N;
+  string S;
+  cin >> S;
 
-  int cnt4 = 0;
-  int cnt2 = 0;
-  int odd = 0;
-  vector<int> A(N);
+  int ans = 0;
   for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-    if (A.at(i) % 4 == 0)
-      cnt4++;
-    else if (A.at(i) % 2 == 0) {
-      cnt2 = 1;
-    } else
-      odd++;
+    int tmp = func(S.substr(0, i), S.substr(i));
+    ans = max(ans, tmp);
   }
 
-  if (cnt2 != 0) {
-    if (cnt4 >= odd - 1)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  } else {
-    if (cnt4 >= odd)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  }
+  cout << ans << endl;
 }
 
 ```

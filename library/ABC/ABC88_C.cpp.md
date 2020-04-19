@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: ABC/ABC88_C.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ABC/ABC88_C.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-19 18:37:09+09:00
 
 
@@ -45,75 +45,68 @@ layout: default
 using namespace std;
 
 int main() {
-  int N;
-  cin >> N;
+  vector<vector<int>> C(3, vector<int>(3));
 
-  int cnt4 = 0;
-  int cnt2 = 0;
-  int odd = 0;
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-    if (A.at(i) % 4 == 0)
-      cnt4++;
-    else if (A.at(i) % 2 == 0) {
-      cnt2 = 1;
-    } else
-      odd++;
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      cin >> C.at(i).at(j);
+    }
   }
 
-  if (cnt2 != 0) {
-    if (cnt4 >= odd - 1)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  } else {
-    if (cnt4 >= odd)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
+  vector<int> X;
+  vector<int> Y;
+  X.at(0) = 0;
+  for (int i = 0; i < 3; i++) Y.at(i) = C.at(0).at(i) - X.at(0);
+  for (int i = 0; i < 3; i++) X.at(i) = C.at(i).at(0) - Y.at(0);
+
+  bool good = true;
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      if (X.at(i) + Y.at(j) != C.at(i).at(j)) good = false;
+    }
   }
+
+  if (good)
+    cout << "Yes" << endl;
+  else
+    cout << "No" << endl;
 }
-
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "ABC/ABC88_C.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-  int N;
-  cin >> N;
+  vector<vector<int>> C(3, vector<int>(3));
 
-  int cnt4 = 0;
-  int cnt2 = 0;
-  int odd = 0;
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-    if (A.at(i) % 4 == 0)
-      cnt4++;
-    else if (A.at(i) % 2 == 0) {
-      cnt2 = 1;
-    } else
-      odd++;
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      cin >> C.at(i).at(j);
+    }
   }
 
-  if (cnt2 != 0) {
-    if (cnt4 >= odd - 1)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  } else {
-    if (cnt4 >= odd)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
+  vector<int> X;
+  vector<int> Y;
+  X.at(0) = 0;
+  for (int i = 0; i < 3; i++) Y.at(i) = C.at(0).at(i) - X.at(0);
+  for (int i = 0; i < 3; i++) X.at(i) = C.at(i).at(0) - Y.at(0);
+
+  bool good = true;
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      if (X.at(i) + Y.at(j) != C.at(i).at(j)) good = false;
+    }
   }
+
+  if (good)
+    cout << "Yes" << endl;
+  else
+    cout << "No" << endl;
 }
 
 ```

@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ABC/test.cpp
+# :warning: AOJ/BinarySearch.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#902fbdd2b1df0c4f70b4a5d23525e932">ABC</a>
-* <a href="{{ site.github.repository_url }}/blob/master/ABC/test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#58a9d597b8071bcb332aab0f39b15887">AOJ</a>
+* <a href="{{ site.github.repository_url }}/blob/master/AOJ/BinarySearch.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-19 18:37:09+09:00
 
 
@@ -44,35 +44,44 @@ layout: default
 #include <bits/stdc++.h>
 using namespace std;
 
+bool isOK(vector<int> A, int index, int key) {
+  if (A.at(index) >= key)
+    return true;
+  else
+    return false;
+}
+
+int binary_search(vector<int> A, int key) {
+  int ng = -1;
+  int ok = (int)A.size();
+
+  while (abs(ok - ng) > 1) {
+    int mid = (ok + ng) / 2;
+
+    if (isOK(A, mid, key))
+      ok = mid;
+    else
+      ng = mid;
+  }
+  return ok;
+}
+
 int main() {
   int N;
   cin >> N;
-
-  int cnt4 = 0;
-  int cnt2 = 0;
-  int odd = 0;
   vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-    if (A.at(i) % 4 == 0)
-      cnt4++;
-    else if (A.at(i) % 2 == 0) {
-      cnt2 = 1;
-    } else
-      odd++;
+  for (int i = 0; i < N; i++) cin >> A.at(i);
+
+  int M;
+  cin >> M;
+  vector<int> B(M);
+  int sum = 0;
+  for (int i = 0; i < M; i++) {
+    cin >> B.at(i);
+    if (binary_search(A, B.at(i))) sum++;
   }
 
-  if (cnt2 != 0) {
-    if (cnt4 >= odd - 1)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  } else {
-    if (cnt4 >= odd)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  }
+  cout << sum << endl;
 }
 
 ```
@@ -81,39 +90,48 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "ABC/test.cpp"
+#line 1 "AOJ/BinarySearch.cpp"
 #include <bits/stdc++.h>
 using namespace std;
+
+bool isOK(vector<int> A, int index, int key) {
+  if (A.at(index) >= key)
+    return true;
+  else
+    return false;
+}
+
+int binary_search(vector<int> A, int key) {
+  int ng = -1;
+  int ok = (int)A.size();
+
+  while (abs(ok - ng) > 1) {
+    int mid = (ok + ng) / 2;
+
+    if (isOK(A, mid, key))
+      ok = mid;
+    else
+      ng = mid;
+  }
+  return ok;
+}
 
 int main() {
   int N;
   cin >> N;
-
-  int cnt4 = 0;
-  int cnt2 = 0;
-  int odd = 0;
   vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-    if (A.at(i) % 4 == 0)
-      cnt4++;
-    else if (A.at(i) % 2 == 0) {
-      cnt2 = 1;
-    } else
-      odd++;
+  for (int i = 0; i < N; i++) cin >> A.at(i);
+
+  int M;
+  cin >> M;
+  vector<int> B(M);
+  int sum = 0;
+  for (int i = 0; i < M; i++) {
+    cin >> B.at(i);
+    if (binary_search(A, B.at(i))) sum++;
   }
 
-  if (cnt2 != 0) {
-    if (cnt4 >= odd - 1)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  } else {
-    if (cnt4 >= odd)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  }
+  cout << sum << endl;
 }
 
 ```

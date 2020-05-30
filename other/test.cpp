@@ -2,16 +2,13 @@
 using namespace std;
 
 int main() {
-  int A, B, C;
-  cin >> A >> B >> C;
-  vector<int> num = {A, B, C};
-  sort(num.begin(), num.end());
+  int a, b, c;
+  cin >> a >> b >> c;
 
-  int ans = 0;
-  if ((num.at(2) * 2 - num.at(1) - num.at(0)) % 2 == 0)
-    ans = num.at(2) Z - num.at(1) - num.at(0) / 2;
-  else
-    ans = num.at(2) * 2 - num.at(1) - num.at(0) + 3 / 2;
+  int cnt = 0;
+  for (int i = a; i <= b; i++) {
+    if (c % i == 0) cnt++;
+  }
 
-  cout << ans << endl;
+  cout << cnt << endl;
 }

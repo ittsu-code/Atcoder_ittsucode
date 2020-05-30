@@ -24,5 +24,5 @@ int main() {
   }
 
   seen.assign(N, false);
-  dfs(G, 0)
+  dfs(G, 0);
 }

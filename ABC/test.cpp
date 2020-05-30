@@ -1,33 +1,25 @@
-#include <bits/stdc++.h>
+#include <bitset>
+#include <iostream>
 using namespace std;
 
 int main() {
-  int N;
-  cin >> N;
+  int n;
+  cin >> n;  // 入力
 
-  int cnt4 = 0;
-  int cnt2 = 0;
-  int odd = 0;
-  vector<int> A(N);
-  for (int i = 0; i < N; i++) {
-    cin >> A.at(i);
-    if (A.at(i) % 4 == 0)
-      cnt4++;
-    else if (A.at(i) % 2 == 0) {
-      cnt2 = 1;
-    } else
-      odd++;
+  // エラトステネスのふるい
+  bitset<1000000> is_prime(0);  // 十分大きなサイズを確保します
+  for (int i = 2; i <= n; ++i)
+    is_prime.set(i);  // とりあえず全部ふるいに入れます
+  for (int i = 2; i <= n; ++i) {
+    if (is_prime[i]) {  // 素数 i を発見したら
+      for (int j = i * 2; j <= n; j += i) {
+        is_prime.reset(j);  // i の倍数をふるい落とす
+      }
+    }
   }
 
-  if (cnt2 != 0) {
-    if (cnt4 >= odd - 1)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
-  } else {
-    if (cnt4 >= odd)
-      cout << "Yes" << endl;
-    else
-      cout << "No" << endl;
+  // 結果出力
+  for (int i = 2; i <= n; ++i) {
+    if (is_prime[i]) cout << i << endl;
   }
 }
